@@ -1,0 +1,722 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Okta Flashcards</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+</style></head><body><article id="e490f64e-2f9a-4900-a821-3cba8e6849b1" class="page sans"><header><h1 class="page-title">Okta Flashcards</h1><p class="page-description"></p></header><div class="page-body"><p id="a9c41912-a76c-4a0b-a3d9-186f56347090" class="">
+</p><h1 id="37bbc020-792e-4dfe-94da-734edb528260" class="">Three types of users explained </h1><p id="fabbe078-c1c0-4573-93eb-6fec8c620538" class="">What are the most-common types of users?<div class="indented"><p id="d5b6c63d-7a01-43e0-bec4-48130b3074d4" class="">Okta Sourced, Directory-Sourced, App-Sourced</p></div></p><p id="3f2881d2-6bb6-43ca-a7c5-e88bdb505a77" class="">
+</p><p id="da8bbbda-068a-446d-b2b1-e899799c3ec5" class="">What is an Okta-Sourced user?<div class="indented"><p id="975757d5-91d6-4103-9fa2-4857b4a82c3c" class="">Account that is maintained within Okta; the attributes modified within Okta’s Identity cloud. Their authentication goes against Okta. </p></div></p><p id="8c3dd861-b746-43e8-9d39-29f9b21115ba" class="">
+</p><p id="dd089d59-cfc5-4d18-8144-e752d141fdca" class="">What is an Directory-Sourced user?<div class="indented"><p id="e8e7ae32-6490-4087-aae0-68fa96193589" class="">Account is created from an directory integration (on-prem AD, LDAP). Their attributes are sourced from the directory service. They authenticate against the directory, if delegated authentication is enabled (default setting).</p><p id="3718e540-7b49-45ec-894d-7c996138a26f" class="">
+</p></div></p><p id="4ce0eaed-b724-44ce-91c7-21307665c614" class="">What is an Application-Sourced user?<div class="indented"><p id="6e44fada-c4ac-4e6f-ab06-59a0f6cf8fe6" class="">The source of truth for the account is an application, like a HR system. Their authentication goes against Okta or directory. </p><p id="8f22182d-e061-4440-b4d9-192b9a7a8654" class="">
+</p></div></p><p id="58b46817-e040-4044-9675-dc62c1274f50" class="">How many default base attributes are in the Okta User Profile and which are required by default? <div class="indented"><p id="75c5739d-3f5e-4a78-b0f9-f2da47556611" class="">31 default base attributes. Default required attributes are; Username, Primary Email, First Name, Last Name. (First Name and Last Name can be made Optional). </p><p id="6e8f8331-864f-428d-931b-c4d215399896" class="">
+</p></div></p><p id="88c3a197-6b24-4de3-8e3a-f395356a0777" class="">What are the different User Statuses in Okta?<div class="indented"><p id="e2bb8dec-d5ef-4290-999a-c6526ac80a0d" class="">Staged, Pending User Action, Active, Deactivated, Password Reset, Password Expired, Locked Out, and Suspended</p><p id="cdfa590f-4b1f-42c4-ad05-fcea389d0038" class="">
+</p></div></p><p id="8879b8b0-2e74-419a-ac1d-a1979c3ce26c" class="">What does the Staged user status mean?<div class="indented"><p id="cf3fab7e-1667-4e46-8495-e580205d1d93" class="">The user account is created, but they have not been activated yet. There may be a pending admin action required. </p><p id="53d723fc-710f-4689-9e59-d77a2ea68d6c" class="">Does not count toward an available Okta license.</p><p id="2cafb576-caf9-4279-9fdb-60b71999678d" class="">
+</p></div></p><p id="350af6d7-1298-4dec-a46a-443ec4324ccc" class="">What does the Pending User Action status mean?<div class="indented"><p id="f4bda078-c5fd-489d-a8d6-0472ec0a3e04" class="">The user account is created and activated, but the user has not completed a required action, such as using the welcome email to setup a password. </p><p id="a77e3589-4f63-401b-8c07-fe5fa9563796" class="">In the API or Reporting, this status is showed as “Provisioned”.</p><p id="1faba1af-516f-41b6-a0f3-f37736ac5508" class="">Does not count toward an available Okta license. </p></div></p><p id="0ef0d09c-f2ef-49cd-87d0-68ea1a1ee78b" class="">
+</p><p id="868b91f2-ceae-4e3c-8e26-0c221401da3b" class="">What does the Active user status mean?<div class="indented"><p id="0c3ad4d9-d924-4af0-b5e9-e30a81e5ea04" class="">The user account is active and they can access all assigned applications.</p></div></p><p id="876b3357-49ff-44a7-baf9-6a8fc44415b3" class="">
+</p><p id="9dbec8a8-6248-4524-99af-034c84379a5d" class="">What does the Deactivated user status mean?<div class="indented"><p id="ae60b387-718c-4dde-8cf1-537a47617c3f" class="">User account is inactive. Removes all applications, and the password is permanently deleted for the account. Admin can’t assign any applications to the account. </p><p id="09d77a99-7d3a-4ef7-bca6-0eb0f90613c8" class="">In Reporting and API, shown as “Deprovisioned”. </p><p id="0a036d41-322c-433e-a8fc-1ed6f7659d76" class="">Does not count toward an available Okta license. </p></div></p><p id="5c7fb1b4-2bca-45a6-8500-5b515f247db2" class="">
+</p><p id="09e31b95-25b3-4597-be73-093655ea5839" class="">What does the Password Reset user status mean?<div class="indented"><p id="7f6bf5ca-c091-4af5-884b-774e6cd2b07c" class="">The account have a recovery status. Users can request a password reset or an admin can initiate one on their behalf. User can not sign into their account. </p><p id="70c427a8-31b7-4017-b9b9-82bb055d12b9" class="">In Reporting &amp; API, shown as “Recovery”.</p><p id="d3fcf419-8d0f-4456-abf3-05afbfadaa1b" class="">Uses an active Okta license. </p></div></p><p id="c430d360-6ac2-4811-bb05-373fa7dca9b7" class="">
+</p><p id="2ab09cac-8902-471d-9997-60e215e541a2" class="">What does the Password Expired user status mean?<div class="indented"><p id="cd930205-4d55-4017-8f04-c02cca5ae120" class="">The password has expired and needs to be updated before the user can get access to applications. The user can not sign into their account. </p><p id="55cbccac-5140-4d06-9af1-011cb8c36389" class="">Uses an active Okta license.</p></div></p><p id="fee9fccc-2f54-4cdb-9175-60386fa7460a" class="">
+</p><p id="585f16c8-96ca-491f-94ef-656df155e460" class="">What does the Locked Out user status mean?<div class="indented"><p id="d6bf2d23-1ff1-464c-9ff4-3b4273c5bbf3" class="">The account has exceed the number of allowed login attempts defined in the login policy. The user can not sign into their account until unlocked by an admin. </p><p id="5efaa1b2-a570-4eb0-8aa4-6a17650b2564" class="">Uses an active Okta license. </p></div></p><p id="bf7f62e3-df41-4df6-990b-8e2df911c2be" class="">
+</p><p id="f82547a1-1ce4-4f35-a560-8c38d870a419" class="">What does the Suspended user status mean?<div class="indented"><p id="c1e0ff68-dbb4-49bd-a89d-e9f0be8ab77d" class="">User cannot access applications or dashboard, but application assignments are unaffected and the user profile can be updated. </p><p id="1d960b82-f9ac-4e3d-8343-1f9ac26d8995" class="">Uses an active Okta license.</p><p id="bb643fb4-293f-47b3-8fa7-e4bb75307175" class="">
+</p></div></p><h1 id="78551528-f12e-4e0f-81f3-6931ccbda7ee" class="">Create Okta-Sourced users individually</h1><p id="75cf166b-96de-405b-8218-d6e1bcc9bf59" class="">What are 3 different ways Okta-sourced users can be created?<div class="indented"><p id="a56c7015-8e03-4805-9604-b6f90a413505" class="">Individually via the admin console, via the API, or in-bulk via a CSV import</p></div></p><p id="85399dd8-4a0d-48b7-abe6-85055741c49e" class="">
+</p><p id="5804349e-6cf4-47a2-a01e-1cc56713fce7" class="">While creating Okta-sourced users individually via the admin console, what conditions do you need to use to create them in a Staged status?<div class="indented"><p id="03357818-45ec-4cd9-89a6-fe12c122a7a3" class="">In the user creation wizard (after selecting Create user), set the Activation setting to “Activated Later”. </p></div></p><p id="f091b2a2-4a07-4ae8-b91f-846e8f6d78b1" class="">
+</p><p id="f43a278d-4d42-4daa-adec-68e6b7a682c4" class="">While creating Okta-sourced users individually via the admin console, what conditions do you need to use to create them in a “Pending User Action” status?<div class="indented"><p id="0ea765c7-e42a-459b-9ef8-acc3fcdb1cce" class="">In the user creation wizard (after selecting Create user), set the Activation setting to “Activated Now”, but leave the “I will set password” box unchecked.</p><p id="83c0ea74-c515-4ad5-a52c-a3c7fc3fce5d" class="">
+</p></div></p><p id="8321639e-54a9-4d0e-9e0e-4a5ec8d7ab09" class="">While creating Okta-sourced users individually via the admin console, what conditions do you need to use to create them in an “Active” status?<div class="indented"><p id="98c1169a-6e85-46ce-8bd5-62926408ee3d" class="">In the user creation wizard (after selecting Create user), set the Activation setting to “Activated Now” and check the box “I will set password”. </p><p id="6e0a1ec8-312a-4638-b475-5278dde529f1" class="">You can optionally select “User must change password on first login” as need be. </p></div></p><p id="b8fd9a07-008e-42cf-8c02-b8b61aa3e1d4" class="">
+</p><p id="ab53e862-27a9-4afb-b500-bd8f3b5c15d0" class="">When creating new Okta accounts, what format must the username be in?<div class="indented"><p id="9a84abab-b137-453d-b973-7c16261e6444" class="">Username must be in an email format, but doesn’t need to be a function email address</p></div></p><p id="7ec1fd99-358c-4079-b4ed-800b0556e3cd" class="">
+</p><p id="90ff8b67-9002-4ae3-94d4-aa6b551a8965" class="">Where are activation emails sent?<div class="indented"><p id="de8662f4-4303-4d52-b188-284febe62395" class="">Activation emails are sent to the primary and secondary email addresses for the account.</p></div></p><p id="f5541ef9-4ad5-45e1-8975-922bf102f734" class="">
+</p><p id="22fe802d-6581-4cdc-acb3-88f8f7327b67" class="">
+</p><p id="30af8cd7-71ef-4709-be0e-8def9c8cd080" class="">Password policy requirements are shown while users create passwords for Okta</p><p id="d551c7d6-fce2-4c93-9cf9-889002ae8fa8" class="">
+</p><h1 id="128030be-56c0-807f-b02b-d1b538b77631" class="">Create Okta-Sourced Users in Bulk</h1><p id="128030be-56c0-80bd-afa5-c89eb701f78c" class="">What is the size limit of a In-build user csv file?<div class="indented"><p id="128030be-56c0-800b-afbf-de1bf97b3fba" class="">Up to 10,000 records OR up to 10 MB of data, but CSV imports are not designed for large-scale user imports</p></div></p><p id="128030be-56c0-8022-b002-f9201d18c154" class="">
+</p><p id="128030be-56c0-8090-85bf-ed47fa1781d9" class="">True or False; Importing users in bulk only creates new “Staged” user accounts in Okta <div class="indented"><p id="128030be-56c0-801d-9c7a-dbec64ed5f53" class="">False; importing a CSV can update existing users by a match via the unique username of each user. You can also specify to activate new accounts during the import process. </p></div></p><p id="128030be-56c0-80f4-b1d9-da97ec00099d" class="">
+</p><p id="128030be-56c0-80f3-9c2e-e916685ed23f" class="">True or False: Okta validates the CSV file format before importing users in bulk<div class="indented"><p id="128030be-56c0-80bf-a72f-fcdf5f51424c" class="">True, by selecting “Upload CSV” during the import process, it parses and validates the CSV file. </p></div></p><p id="dad43701-f4dc-48a7-91a7-56f3d81ba57d" class="">
+</p><h1 id="535ff6b0-3195-4696-b5b9-651ff2da1721" class="">Managed Privileged Accounts</h1><p id="134e5846-67f5-4eb7-bda8-7b1ee8e2ea8b" class="">Why do you need to have various types of admin roles?<div class="indented"><p id="4c40d5d4-f61b-4b36-8478-c549f3f1f3e8" class="">To limit access to privilege users, or divide what actions admins can do based on their role. Okta provides both Standard Admin Roles and you can create custom admin roles to answer this requirement</p></div></p><p id="95a20d86-fa9f-4ec0-9851-280f31a52737" class="">
+</p><p id="820b3625-587b-4f65-8b89-eb2baf859981" class="">What type of users can have admin roles assigned?<div class="indented"><p id="81c7746c-a810-45a9-9acc-08bdd45ef194" class="">All types (Okta-sourced, directory-sourced, and application-sourced) can, but the Best practice is that Okta-sourced users have admin roles</p></div></p><p id="0c5abc08-25d8-4917-b3da-fe9eed7a22c4" class="">
+</p><p id="ee2f0387-560e-4e80-887d-c0f82ce9769f" class="">What are the main predefined admin roles?<div class="indented"><p id="83115123-b83c-4d45-85e9-10328338ae7e" class="">Super Admin, Org Admin, Group Admin, Group Membership Admin, Application Admin, Help Desk Admin, Read-only Admin, Report Admin, Mobile Admin, and API Access Management Admin</p></div></p><p id="88368bdc-10d3-449e-8279-c1cba14424f9" class="">
+</p><p id="1d1cd424-383e-40d4-ba96-a3b5e8a70aff" class="">Describe what the Super Admin role provides<div class="indented"><p id="dca44fb2-718d-4071-8394-74c3a38fbd78" class="">Full access to perform all admin tasks and permission set in Okta. It is the only role that can assign admin privileges. Highest level</p><p id="347c380c-eefd-40aa-b248-9097a55212af" class="">(was called Super Organization Admin in the past)</p></div></p><p id="73a9ba29-53a4-44ee-8107-fd3225a31976" class="">
+</p><p id="b5db1cfc-8fbc-4521-89e2-88ae1bd4211d" class="">Describe what the Organization Admin role provides<div class="indented"><p id="bb2a8ad1-aba9-4941-9624-0d0a2f4a9ed2" class="">Can perform most org-wide settings. Can perform all management tasks for users and groups. cannot perform any application management tasks (assigning them)</p><p id="1e986497-8a22-4fef-a0f8-00d0ddeb5ebc" class="">
+</p></div></p><p id="818ab6bf-d3cd-425e-b8c6-4375ec2c1813" class="">Describe what the Application Admin role provides<div class="indented"><p id="18d49833-1687-4745-bd55-d20dd95bbb32" class="">Can manage profile information, can view users and groups, but not modify either. Can manage info on apps to which they are assigned access. </p><p id="5769268c-90bb-478d-85a4-2060692d9f2c" class="">
+</p></div></p><p id="444d0cba-d754-478d-8eaa-934fb881ef84" class="">Describe what the Group admin role provides<div class="indented"><p id="d5f6f884-baaf-4820-bf73-0e5cac0b66bc" class="">Can create users, deactivate users, and reset passwords. Can be used to restrict task to select group/groups of Okta users. Cannot perform group creation and any app management tasks. </p></div></p><p id="8457d433-64de-4ca1-8732-e9d4b213451a" class="">
+</p><p id="1a531f46-0932-4153-9e28-a43f1a5c00cf" class="">Describe what the Help Desk admin role provides<div class="indented"><p id="86a19211-4040-4f8f-8046-0b3d4cdf4d9f" class="">Can view users, can reset password and MFA, can clear user session, and can unlock users</p></div></p><p id="1e36bbdd-939a-4f3c-ae38-7a9881507603" class="">
+</p><p id="c266d362-f843-4753-b709-5fffffa0b9fb" class="">Describe what the Read-only admin role provides<div class="indented"><p id="c81f5f2e-d329-44dc-8518-960b9d2fd562" class="">Can view and run reports. Can view users, groups and apps, but cannot modify any settings. Can view, but not modify org settings. </p><p id="12b030be-56c0-80da-9592-c93c1b134376" class="">
+</p></div></p><p id="12b030be-56c0-80ce-9c40-f0445d7debe6" class="">Describe what the Mobile Admin role provides<div class="indented"><p id="dcc767d4-caa7-4446-aac0-1684a30d5ed9" class="">can perform actions related to mobile policies, sign-on policies, mobile devices, and Okta Mobile.</p></div></p><h1 id="12b030be-56c0-801c-aaad-c79c8a9e13ac" class="">Create Custom Admin Roles</h1><p id="12b030be-56c0-80d8-b649-c8977272329e" class="">What are the 3 components to custom admin roles?<div class="indented"><p id="12b030be-56c0-80d8-b71c-c79e3da15620" class="">Recourses - The groups and applications the role is constrained to (what they can access)</p><p id="12b030be-56c0-801e-bf59-c7ba10c5d6a7" class="">Roles - The permission sets that the Admins have (what actions they can take)</p><p id="12b030be-56c0-8087-878a-e0dd220d2d3f" class="">Admins - The groups or individual accounts</p></div></p><p id="12b030be-56c0-8085-a4d5-fdbd95e89cae" class="">
+</p><p id="12b030be-56c0-807d-b55d-dbadc237e4eb" class="">How do you update the notification settings for admins? <div class="indented"><p id="12b030be-56c0-80bc-8eac-cff60a5fcc45" class="">Go to Security &gt; Administrators &gt; Roles, then select the Edit action for the role you would like to update notification settings for. </p></div></p><p id="12b030be-56c0-8028-9eb9-e47bf7fec08c" class="">
+</p><p id="12b030be-56c0-807b-9230-f9d8ec0ef215" class="">True or False: The resource set is the permissions an admin account is constrained to. <div class="indented"><p id="12b030be-56c0-804b-9080-cbfbbf1b05b7" class="">False: The Roles are the permission set the admin account has. </p></div></p><p id="12b030be-56c0-80e1-b369-eb5bf8ea0b19" class="">
+</p><p id="12b030be-56c0-8099-ad2b-f719d14f5b39" class="">What report shows admin roles &amp; resource sets that are assigned in your organization?<div class="indented"><p id="12b030be-56c0-8016-a6ca-e56c226f9d22" class="">The Admin Role Assignments report</p></div></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
