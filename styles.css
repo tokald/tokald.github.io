@@ -18,6 +18,12 @@ body {
   gap: 5%;
 }
 
+.menu_header {
+  display: flex;
+  align-items: baseline;
+  gap: 2%;
+}
+
 .kanit-thin {
     font-family: "Kanit", sans-serif;
     font-weight: 100;

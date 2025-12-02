@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./styles.css">
+        <title>A LoL for SCIM</title>
+    </head>
+    <body>
+    <div class="menu_header">
+        <a class="kanit-regular" href="index.html"><h3>home</h3></a>
+        <a class="kanit-regular" href="blog.html"><h3>blog</h3></a>
+        <a class="kanit-regular" href="about.html"><h3>about</h3></a>
+    </div>
+
+
+        <h1 class="kanit-extrabold">A <u>L</u>ist <u>O</u>f <u>L</u>inks for the <u>S</u>ystem for <u>C</u>ross-<u>D</u>omain <u>I</u>dentity <u>M</u>anagement Protocol</h1>
+        <h2 class="kanit-semibold"><i>AKA, a LoL for SCIM</i></h2>
+    
+        <p class="kanit-regular">These days, setting up SCIM provisioning is usually a very easy ask. A quick copy paste of information between the application and your identity provider, and done.<br>
+            But have you ever wondered what is going on under the hood? Or run into some weird issues with an application's provisioning process? Or want your application's SCIM setup not to skimp by? </p>
+
+        <p class="kanit-regular">I could rewrite summaries of this protocol, but to be honest, better writers have done it already. And let's be efficient/lazy like a good IT engineer and not waste their good work.</p>
+        <p class="kanit-regular">Let's dive into this widely useful and adopted protocol.<br>
+            The goal of this article is to provide a collection of useful resources about the SCIM protocol, and some tips and tricks for the interested (or frustrated) IT professional. I will be updating this over time with new information.</p>
+
+        <h2 class="kanit-bold">Table of Contents</h2>
+<p class="kanit-regular">The Basic Stuff - What is SCIM<br>
+The Gritty Stuff - How it actually works<br>
+The Interesting Stuff - What you can do<br>
+Source material and  other good resources</p>
+
+<h2 class="kanit-bold">The Basic Stuff - What is SCIM</h2>
+<p class="kanit-regular">We start with the best, Wikipedia: <a rel="noopener nofollow" href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management" target="_self">System for Cross-domain Identity Management - Wikipedia</a> </p>
+<p class="kanit-regular">These articles have some great talking points if you need to talk to non-technical decision makers about SCIM:</p>
+<ul class="kanit-regular">
+    <li ><a rel="noopener nofollow" href="https://www.microsoft.com/en-us/security/business/security-101/what-is-scim" target="_self">What Is SCIM? Meaning and Integration | Microsoft Security</a></li>
+    <li><a rel="noopener nofollow" href="https://developer.okta.com/docs/concepts/scim/" target="_self">Understanding SCIM | Okta Developer</a></li>
+    <li><a rel="noopener nofollow" href="https://www.pingidentity.com/en/resources/identity-fundamentals/authentication-authorization-protocols/scim.html" target="_self">Discover SCIM: Simplifying User Provisioning &amp; Identity</a></li>
+</ul>
+
+<p class="kanit-regular">There are some prerequisite subjects you should be familiar with before we get into the weeds.</p>
+
+<ul class="kanit-regular">
+    <li>REST APIs</li>
+    <li>IdPs vs SPs</li>
+    <li>JSON</li>
+</ul>
+
+<h2 class="kanit-bold">The Gritty Stuff - How it actually works</h2>
+
+<p class="kanit-regular">Check out <a rel="noopener nofollow" href="https://scim.cloud/" target="_self">SCIM: System for Cross-domain Identity Management</a> for a great walk through of protocol. </p>
+
+<p class="kanit-regular">An important note is that vendor's don't usually follow these standards to the T, so not everything will apply to every SCIM setup.<br>
+For example, the financial tool Ramp has SCIM provisioning available, but customers are not able to send DELETE calls or use the /Schemas endpoint. </p>
+
+<h2 class="kanit-bold">The Interesting Stuff</h2>
+<p class="kanit-regular">While copy/pasting SCIM information during setup, I would recommend saving any tokens/secrets in secure password manager. If you have the application's SCIM endpoint URL and the token, you can run some of these API calls yourself!</p>
+
+<h2 class="kanit-bold">Information Sources</h2>
+<p class="kanit-regular"><a rel="noopener nofollow" href="https://scim.cloud/" target="_self">SCIM: System for Cross-domain Identity Management</a><br>
+<a rel="noopener nofollow" href="https://datatracker.ietf.org/doc/html/rfc7643" target="_self">RFC 7643 - System for Cross-domain Identity Management: Core Schema</a><br>
+<a rel="noopener nofollow" href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management" target="_self">System for Cross-domain Identity Management - Wikipedia</a></p>
+
+<p class="kanit-regular">If you complete all these readings, congrats! You are now an unofficial super SCIM wizard. </p>
+
+</body>
+</html>
